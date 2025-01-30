@@ -25,13 +25,6 @@ extends Node2D
 	set(value):
 		antialiased = value
 		queue_redraw()
-	
-#func _ready():
-	#update()  # Ensure the circle is drawn on start
-	#queue_redraw()
-
-#func _process(delta: float) -> void:
-	#queue_redraw()
 
 func _draw():
 	draw_circle(Vector2(0, 0), radius, color, filled, width, antialiased)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dka7w7lm8a2r1"]
 
-[ext_resource type="PackedScene" uid="uid://cd6bd2sx1coku" path="res://components/rectangle.tscn" id="1_4n6e6"]
+[ext_resource type="PackedScene" uid="uid://cd6bd2sx1coku" path="res://components/rectangle/rectangle.tscn" id="1_4n6e6"]
 [ext_resource type="PackedScene" uid="uid://bylddmqcvi5bf" path="res://components/light.tscn" id="1_il4kq"]
 [ext_resource type="Script" path="res://scripts/traffic_light.gd" id="1_ok2ls"]
 [ext_resource type="AudioStream" uid="uid://boocxua2g7uki" path="res://sfx/Light Switch Click On Sfx.wav" id="4_dhn5e"]

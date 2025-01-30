@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://dcvc2sxtbgvux"]
+[gd_scene load_steps=10 format=3 uid="uid://dcvc2sxtbgvux"]
 
-[ext_resource type="PackedScene" uid="uid://dpj77ifweycue" path="res://components/circle.tscn" id="1_3l2tw"]
+[ext_resource type="PackedScene" uid="uid://dpj77ifweycue" path="res://components/circle/circle.tscn" id="1_3l2tw"]
 [ext_resource type="Script" path="res://scripts/cloud.gd" id="1_okks1"]
-[ext_resource type="Script" path="res://components/eye.gd" id="2_l66wx"]
-[ext_resource type="Script" path="res://components/mouth.gd" id="3_ejegj"]
+[ext_resource type="PackedScene" uid="uid://b7m0ojuxl66c5" path="res://components/face/face.tscn" id="3_cytkc"]
 [ext_resource type="AudioStream" uid="uid://dbq6vk3yci18p" path="res://sfx/p_2.ogg" id="5_7f118"]
 [ext_resource type="AudioStream" uid="uid://gmnoir1lgr37" path="res://sfx/p_1.ogg" id="5_uw78s"]
 [ext_resource type="AudioStream" uid="uid://drhj52lxdi1ux" path="res://sfx/p_4.ogg" id="8_a4yql"]
@@ -111,36 +110,7 @@ color = Color(0.39, 0.573, 1, 1)
 filled = false
 width = 0.2
 
-[node name="Face" type="Node2D" parent="."]
-z_index = 2
-position = Vector2(0, 0.5)
-
-[node name="Left Eye" type="Node2D" parent="Face"]
-z_index = 5
-position = Vector2(-0.5, 0)
-scale = Vector2(0.2, 0.3)
-script = ExtResource("2_l66wx")
-color = Color(0.388235, 0.572549, 1, 1)
-state = 2
-width = 0.3
-
-[node name="Right Eye" type="Node2D" parent="Face"]
-z_index = 5
-position = Vector2(1.25, 0)
-scale = Vector2(0.2, 0.3)
-script = ExtResource("2_l66wx")
-color = Color(0.388235, 0.572549, 1, 1)
-state = 2
-width = 0.3
-
-[node name="Mouth" type="Node2D" parent="Face"]
-z_index = 1
-position = Vector2(0.425, 0.3)
-scale = Vector2(0.2, 0.2)
-script = ExtResource("3_ejegj")
-color = Color(0.388235, 0.572549, 1, 1)
-state = 2
-width = 0.4
+[node name="Face" parent="." instance=ExtResource("3_cytkc")]
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." groups=["pickable"]]
 z_index = 3
