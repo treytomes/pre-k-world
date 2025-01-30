@@ -1,0 +1,201 @@
+[gd_scene load_steps=11 format=3 uid="uid://dcvc2sxtbgvux"]
+
+[ext_resource type="PackedScene" uid="uid://dpj77ifweycue" path="res://components/circle.tscn" id="1_3l2tw"]
+[ext_resource type="Script" path="res://scripts/cloud.gd" id="1_okks1"]
+[ext_resource type="Script" path="res://components/eye.gd" id="2_l66wx"]
+[ext_resource type="Script" path="res://components/mouth.gd" id="3_ejegj"]
+[ext_resource type="AudioStream" uid="uid://dbq6vk3yci18p" path="res://sfx/p_2.ogg" id="5_7f118"]
+[ext_resource type="AudioStream" uid="uid://gmnoir1lgr37" path="res://sfx/p_1.ogg" id="5_uw78s"]
+[ext_resource type="AudioStream" uid="uid://drhj52lxdi1ux" path="res://sfx/p_4.ogg" id="8_a4yql"]
+[ext_resource type="AudioStream" uid="uid://d0moiwd46wnam" path="res://sfx/p_5.ogg" id="9_qqdg6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f1mxt"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_50gkg"]
+streams_count = 4
+stream_0/stream = ExtResource("5_uw78s")
+stream_1/stream = ExtResource("5_7f118")
+stream_2/stream = ExtResource("8_a4yql")
+stream_3/stream = ExtResource("9_qqdg6")
+
+[node name="Cloud" type="Node2D"]
+scale = Vector2(40, 40)
+script = ExtResource("1_okks1")
+
+[node name="Fill" type="Node2D" parent="."]
+z_index = 1
+
+[node name="Circle" parent="Fill" instance=ExtResource("1_3l2tw")]
+position = Vector2(-0.125, 0.575)
+color = Color(1, 1, 1, 1)
+
+[node name="Circle3" parent="Fill" instance=ExtResource("1_3l2tw")]
+position = Vector2(-1.05, 0.25)
+color = Color(1, 1, 1, 1)
+
+[node name="Circle4" parent="Fill" instance=ExtResource("1_3l2tw")]
+position = Vector2(-2.425, 1)
+color = Color(1, 1, 1, 1)
+
+[node name="Circle5" parent="Fill" instance=ExtResource("1_3l2tw")]
+position = Vector2(0.45, 1.15)
+color = Color(1, 1, 1, 1)
+
+[node name="Circle10" parent="Fill" instance=ExtResource("1_3l2tw")]
+position = Vector2(3.025, 1.325)
+color = Color(1, 1, 1, 1)
+
+[node name="Circle9" parent="Fill" instance=ExtResource("1_3l2tw")]
+position = Vector2(1.9, 0.925)
+color = Color(1, 1, 1, 1)
+
+[node name="Circle8" parent="Fill" instance=ExtResource("1_3l2tw")]
+position = Vector2(1.55, -0.35)
+color = Color(1, 1, 1, 1)
+
+[node name="Circle7" parent="Fill" instance=ExtResource("1_3l2tw")]
+position = Vector2(-1, 1.325)
+color = Color(1, 1, 1, 1)
+
+[node name="Circle2" parent="Fill" instance=ExtResource("1_3l2tw")]
+position = Vector2(0.2, -0.6)
+color = Color(1, 1, 1, 1)
+
+[node name="Outline" type="Node2D" parent="."]
+
+[node name="Circle3" parent="Outline" instance=ExtResource("1_3l2tw")]
+position = Vector2(-1.05, 0.25)
+color = Color(0.39, 0.573, 1, 1)
+filled = false
+width = 0.2
+
+[node name="Circle4" parent="Outline" instance=ExtResource("1_3l2tw")]
+position = Vector2(-2.425, 1)
+color = Color(0.39, 0.573, 1, 1)
+filled = false
+width = 0.2
+
+[node name="Circle5" parent="Outline" instance=ExtResource("1_3l2tw")]
+position = Vector2(0.45, 1.15)
+color = Color(0.39, 0.573, 1, 1)
+filled = false
+width = 0.2
+
+[node name="Circle10" parent="Outline" instance=ExtResource("1_3l2tw")]
+position = Vector2(3.025, 1.325)
+color = Color(0.39, 0.573, 1, 1)
+filled = false
+width = 0.2
+
+[node name="Circle9" parent="Outline" instance=ExtResource("1_3l2tw")]
+position = Vector2(1.9, 0.925)
+color = Color(0.39, 0.573, 1, 1)
+filled = false
+width = 0.2
+
+[node name="Circle8" parent="Outline" instance=ExtResource("1_3l2tw")]
+position = Vector2(1.55, -0.35)
+color = Color(0.39, 0.573, 1, 1)
+filled = false
+width = 0.2
+
+[node name="Circle7" parent="Outline" instance=ExtResource("1_3l2tw")]
+position = Vector2(-1, 1.325)
+color = Color(0.39, 0.573, 1, 1)
+filled = false
+width = 0.2
+
+[node name="Circle2" parent="Outline" instance=ExtResource("1_3l2tw")]
+position = Vector2(0.2, -0.6)
+color = Color(0.39, 0.573, 1, 1)
+filled = false
+width = 0.2
+
+[node name="Face" type="Node2D" parent="."]
+z_index = 2
+position = Vector2(0, 0.5)
+
+[node name="Left Eye" type="Node2D" parent="Face"]
+z_index = 5
+position = Vector2(-0.5, 0)
+scale = Vector2(0.2, 0.3)
+script = ExtResource("2_l66wx")
+color = Color(0.388235, 0.572549, 1, 1)
+state = 2
+width = 0.3
+
+[node name="Right Eye" type="Node2D" parent="Face"]
+z_index = 5
+position = Vector2(1.25, 0)
+scale = Vector2(0.2, 0.3)
+script = ExtResource("2_l66wx")
+color = Color(0.388235, 0.572549, 1, 1)
+state = 2
+width = 0.3
+
+[node name="Mouth" type="Node2D" parent="Face"]
+z_index = 1
+position = Vector2(0.425, 0.3)
+scale = Vector2(0.2, 0.2)
+script = ExtResource("3_ejegj")
+color = Color(0.388235, 0.572549, 1, 1)
+state = 2
+width = 0.4
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." groups=["pickable"]]
+z_index = 3
+input_pickable = true
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+z_index = 1
+position = Vector2(0.175, -0.7)
+scale = Vector2(0.1, 0.1)
+shape = SubResource("CircleShape2D_f1mxt")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="RigidBody2D"]
+z_index = 1
+position = Vector2(1.575, -0.45)
+scale = Vector2(0.1, 0.1)
+shape = SubResource("CircleShape2D_f1mxt")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="RigidBody2D"]
+z_index = 1
+position = Vector2(1.925, 0.925)
+scale = Vector2(0.11, 0.11)
+shape = SubResource("CircleShape2D_f1mxt")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="RigidBody2D"]
+z_index = 1
+position = Vector2(0.425, 1.15)
+scale = Vector2(0.11, 0.11)
+shape = SubResource("CircleShape2D_f1mxt")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="RigidBody2D"]
+z_index = 1
+position = Vector2(-0.95, 1.325)
+scale = Vector2(0.11, 0.11)
+shape = SubResource("CircleShape2D_f1mxt")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="RigidBody2D"]
+z_index = 1
+position = Vector2(-2.4, 1)
+scale = Vector2(0.11, 0.11)
+shape = SubResource("CircleShape2D_f1mxt")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="RigidBody2D"]
+z_index = 1
+position = Vector2(-1.05, 0.275)
+scale = Vector2(0.11, 0.11)
+shape = SubResource("CircleShape2D_f1mxt")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="RigidBody2D"]
+z_index = 1
+position = Vector2(3.025, 1.325)
+scale = Vector2(0.11, 0.11)
+shape = SubResource("CircleShape2D_f1mxt")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_50gkg")
+
+[connection signal="input_event" from="RigidBody2D" to="." method="_on_rigid_body_2d_input_event"]

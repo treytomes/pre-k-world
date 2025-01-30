@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnhin03tannmo"]
+
+[ext_resource type="PackedScene" uid="uid://cd6bd2sx1coku" path="res://components/rectangle.tscn" id="1_37cbp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k14xl"]
+
+[node name="Ground" type="Node2D"]
+
+[node name="Grass" parent="." instance=ExtResource("1_37cbp")]
+width = 2000.0
+height = 50.0
+color = Color(0, 1, 0, 1)
+
+[node name="Dirt" parent="." instance=ExtResource("1_37cbp")]
+position = Vector2(0, 75)
+width = 2000.0
+height = 100.0
+color = Color(0.64, 0.288, 0, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 50)
+scale = Vector2(100, 7.5)
+shape = SubResource("RectangleShape2D_k14xl")

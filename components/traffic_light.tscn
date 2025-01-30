@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=3 uid="uid://dka7w7lm8a2r1"]
+
+[ext_resource type="PackedScene" uid="uid://cd6bd2sx1coku" path="res://components/rectangle.tscn" id="1_4n6e6"]
+[ext_resource type="PackedScene" uid="uid://bylddmqcvi5bf" path="res://components/light.tscn" id="1_il4kq"]
+[ext_resource type="Script" path="res://scripts/traffic_light.gd" id="1_ok2ls"]
+[ext_resource type="AudioStream" uid="uid://boocxua2g7uki" path="res://sfx/Light Switch Click On Sfx.wav" id="4_dhn5e"]
+
+[sub_resource type="GDScript" id="GDScript_7wbp5"]
+script/source = "extends RigidBody2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_input_event(viewport, event, shape_idx):
+	print(\"Rigid: \" + str(event) + \", \" + str(shape_idx))
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cq381"]
+size = Vector2(60, 160)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4yvp3"]
+
+[node name="Traffic Light" type="Node2D"]
+script = ExtResource("1_ok2ls")
+
+[node name="Outer Frame" parent="." instance=ExtResource("1_4n6e6")]
+width = 60.0
+height = 160.0
+color = Color(0.88, 0.586667, 0, 1)
+
+[node name="Inner Frame" parent="Outer Frame" instance=ExtResource("1_4n6e6")]
+height = 150.0
+color = Color(0.37, 0.37, 0.37, 1)
+
+[node name="Red Light" parent="Outer Frame/Inner Frame" instance=ExtResource("1_il4kq")]
+position = Vector2(0, -50)
+scale = Vector2(22, 22)
+color = Color(1, 0, 0, 1)
+
+[node name="Yellow Light" parent="Outer Frame/Inner Frame" instance=ExtResource("1_il4kq")]
+scale = Vector2(22, 22)
+color = Color(1, 1, 0, 1)
+
+[node name="Green Light" parent="Outer Frame/Inner Frame" instance=ExtResource("1_il4kq")]
+position = Vector2(0, 50)
+scale = Vector2(22, 22)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_dhn5e")
+
+[node name="Post" parent="." instance=ExtResource("1_4n6e6")]
+position = Vector2(0, 160)
+width = 15.0
+height = 160.0
+color = Color(0.878431, 0.588235, 0, 1)
+
+[node name="Rigid Body" type="RigidBody2D" parent="." groups=["pickable"]]
+input_pickable = true
+freeze = true
+script = SubResource("GDScript_7wbp5")
+
+[node name="Frame Collider" type="CollisionShape2D" parent="Rigid Body"]
+shape = SubResource("RectangleShape2D_cq381")
+
+[node name="Post Collider" type="CollisionShape2D" parent="Rigid Body"]
+position = Vector2(0, 160)
+scale = Vector2(0.75, 8)
+shape = SubResource("RectangleShape2D_4yvp3")
+
+[connection signal="input_event" from="Rigid Body" to="." method="_on_rigid_body_2d_input_event"]
