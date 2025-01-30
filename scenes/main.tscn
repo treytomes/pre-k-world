@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://spin1r6erqbj"]
 
-[ext_resource type="PackedScene" uid="uid://dka7w7lm8a2r1" path="res://components/traffic_light.tscn" id="1_on38o"]
-[ext_resource type="PackedScene" uid="uid://ch7nrdnr6t88s" path="res://components/player_camera.tscn" id="2_lhjh1"]
-[ext_resource type="PackedScene" uid="uid://cnhin03tannmo" path="res://components/ground.tscn" id="3_qcvqm"]
+[ext_resource type="PackedScene" uid="uid://dka7w7lm8a2r1" path="res://components/traffic_light/traffic_light.tscn" id="1_on38o"]
+[ext_resource type="PackedScene" uid="uid://ch7nrdnr6t88s" path="res://components/player_camera/player_camera.tscn" id="2_lhjh1"]
+[ext_resource type="PackedScene" uid="uid://cnhin03tannmo" path="res://components/ground/ground.tscn" id="3_qcvqm"]
 [ext_resource type="PackedScene" uid="uid://cve5jnyxak4mh" path="res://components/background/background.tscn" id="4_sfmu6"]
-[ext_resource type="PackedScene" uid="uid://dcvc2sxtbgvux" path="res://components/cloud.tscn" id="5_rt6qh"]
+[ext_resource type="PackedScene" uid="uid://dcvc2sxtbgvux" path="res://components/cloud/cloud.tscn" id="5_rt6qh"]
 
 [node name="Node2D" type="Node2D"]
 

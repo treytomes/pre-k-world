@@ -54,7 +54,6 @@ func _input(event: InputEvent) -> void:
 		if $Camera.zoom.x > zoom_max:
 			$Camera.zoom = Vector2.ONE * zoom_max
 		position = event.position
-		print("pos: " + str(event.position))
 	elif event.is_action_pressed("zoom_out", true):
 		$Camera.zoom -= Vector2.ONE * event.factor * zoom_multiplier
 		if $Camera.zoom.x < zoom_min:
