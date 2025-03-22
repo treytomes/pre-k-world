@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://spin1r6erqbj"]
+[gd_scene load_steps=7 format=3 uid="uid://spin1r6erqbj"]
 
 [ext_resource type="PackedScene" uid="uid://dka7w7lm8a2r1" path="res://components/traffic_light/traffic_light.tscn" id="1_on38o"]
 [ext_resource type="PackedScene" uid="uid://ch7nrdnr6t88s" path="res://components/player_camera/player_camera.tscn" id="2_lhjh1"]
 [ext_resource type="PackedScene" uid="uid://cnhin03tannmo" path="res://components/ground/ground.tscn" id="3_qcvqm"]
 [ext_resource type="PackedScene" uid="uid://cve5jnyxak4mh" path="res://components/background/background.tscn" id="4_sfmu6"]
 [ext_resource type="PackedScene" uid="uid://dcvc2sxtbgvux" path="res://components/cloud/cloud.tscn" id="5_rt6qh"]
+[ext_resource type="PackedScene" uid="uid://covxv14rp0n0e" path="res://components/cannon/cannon.tscn" id="6_0cejf"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -54,3 +55,6 @@ speed = -40.0
 position = Vector2(-1434, -411)
 scale = Vector2(35, 35)
 speed = -30.0
+
+[node name="Cannon" parent="Objects" instance=ExtResource("6_0cejf")]
+position = Vector2(157, 215)
